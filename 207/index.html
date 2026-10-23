@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10131d" />
+    <meta
+      name="description"
+      content="Flip cards, find matching pairs, and beat your best time in this cozy memory game."
+    />
+    <title>Flip &amp; Find — A Memory Card Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="Flip and Find home">
+          <span class="brand-icon" aria-hidden="true">✦</span>
+          <span>little<span class="brand-light">games</span></span>
+        </a>
+        <span class="topbar-note"><span class="status-dot"></span> A little brain break</span>
+      </header>
+
+      <section class="game-layout" aria-labelledby="game-title">
+        <div class="intro">
+          <div class="eyebrow"><span>✳</span> THE MEMORY GAME</div>
+          <h1 id="game-title">Flip <span>&amp;</span> Find</h1>
+          <p class="subtitle">A calm little challenge for your brain.</p>
+          <p class="instructions">Find all the matching pairs. The fewer flips, the better!</p>
+
+          <div class="stats" aria-label="Game statistics">
+            <div class="stat">
+              <span class="stat-label">MOVES</span>
+              <span class="stat-value" id="moves">0</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-label">TIME</span>
+              <span class="stat-value" id="timer">00:00</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat">
+              <span class="stat-label">PAIRS</span>
+              <span class="stat-value"><span id="matches">0</span><span class="stat-muted"> / <span id="pair-total">8</span></span></span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <label class="difficulty-label" for="difficulty">DIFFICULTY</label>
+            <select id="difficulty" aria-label="Choose difficulty">
+              <option value="easy">Easy · 4 × 4</option>
+              <option value="medium">Medium · 4 × 5</option>
+              <option value="hard">Hard · 6 × 6</option>
+            </select>
+            <button class="restart-button" id="restart" type="button">
+              <span aria-hidden="true">↻</span> New game
+            </button>
+          </div>
+
+          <p class="best-score" id="best-score">Your best: <span>—</span></p>
+        </div>
+
+        <div class="board-wrap">
+          <div class="board-heading">
+            <span><span class="board-dot"></span> YOUR BOARD</span>
+            <span id="board-hint">Tap a card to flip it</span>
+          </div>
+          <div
+            class="card-grid"
+            id="card-grid"
+            role="group"
+            aria-label="Memory card game board"
+          ></div>
+          <div class="win-message" id="win-message" role="status" aria-live="assertive" hidden>
+            <span class="win-sparkle" aria-hidden="true">✦</span>
+            <div>
+              <strong>Beautifully done!</strong>
+              <span id="win-summary"></span>
+            </div>
+            <button class="play-again" id="play-again" type="button">Play again <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="board-footer"><span aria-hidden="true">♡</span> Take your time. There’s no rush.</p>
+        </div>
+      </section>
+
+      <footer class="footer">Made for a moment of calm <span aria-hidden="true">✳</span></footer>
+    </main>
+  </body>
+</html>
